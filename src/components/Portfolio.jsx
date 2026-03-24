@@ -10,6 +10,15 @@ export default function Portfolio() {
   const gridRef = useScrollReveal({ threshold: 0.05, stagger: 120 });
   const navigate = useNavigate();
   const [activeProject, setActiveProject] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const closeProject = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActiveProject(null);
+      setIsClosing(false);
+    }, 400);
+  };
 
   useEffect(() => {
     if (activeProject !== null) {
@@ -78,11 +87,11 @@ export default function Portfolio() {
 
       {/* Project Detail Modal */}
       {activeProject && (
-        <div className={modalStyles.modal}>
+        <div className={`${modalStyles.modal} ${isClosing ? modalStyles.modalClosing : ''}`}>
           <div className={modalStyles.modalScroll}>
             <button
               className={modalStyles.modalClose}
-              onClick={() => setActiveProject(null)}
+              onClick={closeProject}
               aria-label="Chiudi"
             >
               ✕
@@ -204,7 +213,7 @@ export default function Portfolio() {
 
               <div className={modalStyles.modalCta}>
                 <p className={modalStyles.modalCtaText}>Ti piace questo progetto?</p>
-                <a href="#contatti" className="btn btn-primary" onClick={() => setActiveProject(null)}>
+                <a href="#contatti" className="btn btn-primary" onClick={closeProject}>
                   Richiedi un progetto simile
                 </a>
               </div>

@@ -13,7 +13,16 @@ const CATEGORIES = [
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('Tutti');
   const [activeProject, setActiveProject] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
   const location = useLocation();
+
+  const closeProject = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActiveProject(null);
+      setIsClosing(false);
+    }, 400);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -113,11 +122,11 @@ export default function ProjectsPage() {
 
       {/* Project Detail Modal */}
       {activeProject && (
-        <div className={styles.modal}>
+        <div className={`${styles.modal} ${isClosing ? styles.modalClosing : ''}`}>
           <div className={styles.modalScroll}>
             <button
               className={styles.modalClose}
-              onClick={() => setActiveProject(null)}
+              onClick={closeProject}
               aria-label="Chiudi"
             >
               ✕
@@ -239,7 +248,7 @@ export default function ProjectsPage() {
 
               <div className={styles.modalCta}>
                 <p className={styles.modalCtaText}>Ti piace questo progetto?</p>
-                <a href="#contatti" className="btn btn-primary" onClick={() => setActiveProject(null)}>
+                <a href="#contatti" className="btn btn-primary" onClick={closeProject}>
                   Richiedi un progetto simile
                 </a>
               </div>

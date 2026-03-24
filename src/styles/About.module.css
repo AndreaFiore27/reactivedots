@@ -219,6 +219,12 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+  .subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+  }
+
   .stats {
     gap: 24px;
   }

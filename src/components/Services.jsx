@@ -95,6 +95,7 @@ export default function Services() {
   const revealGridRef = useScrollReveal({ threshold: 0.05 });
   const mouseGridRef = useRef(null);
   const [activeService, setActiveService] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [form, setForm] = useState({
     name: '', email: '', company: '', budget: '', message: '', privacy: false,
@@ -116,6 +117,14 @@ export default function Services() {
     setActiveService(s);
     setFormSubmitted(false);
     setForm({ name: '', email: '', company: '', budget: '', message: '', privacy: false });
+  };
+
+  const closeService = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setActiveService(null);
+      setIsClosing(false);
+    }, 400);
   };
 
   useEffect(() => {
@@ -177,11 +186,11 @@ export default function Services() {
         const relatedProjects = RELATED_PROJECTS.filter((p) => p.service === activeService.num);
 
         return (
-          <div className={styles.modal}>
+          <div className={`${styles.modal} ${isClosing ? styles.modalClosing : ''}`}>
             <div className={styles.modalScroll}>
               <button
                 className={styles.modalClose}
-                onClick={() => setActiveService(null)}
+                onClick={closeService}
                 aria-label="Chiudi"
               >
                 ✕

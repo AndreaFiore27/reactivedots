@@ -36,11 +36,12 @@
 
 .logo {
   flex-shrink: 0;
-  height: 48px;
+  width: 160px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
+  padding: 12px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.85); /* Constant white backdrop so black logos are visible */
   transition: all 0.3s ease;
@@ -53,9 +54,8 @@
 }
 
 .logoImg {
+  width: 100%;
   height: 100%;
-  width: auto;
-  max-width: 130px;
   object-fit: contain;
   /* Grayscale when not hovered */
   filter: grayscale(100%);
@@ -84,10 +84,8 @@
   }
 
   .logo {
-    height: 42px;
-  }
-
-  .logoImg {
-    max-width: 120px;
+    width: 120px;
+    height: 48px;
+    padding: 8px;
   }
 }

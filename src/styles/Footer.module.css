@@ -1,0 +1,181 @@
+.footer {
+  position: relative;
+  background-color: transparent;
+  padding: 80px 24px 0;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+/* Top area: logo + columns */
+.top {
+  display: flex;
+  gap: 64px;
+  margin-bottom: 48px;
+}
+
+.brand {
+  flex: 0 0 280px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--bianco);
+  margin-bottom: 12px;
+}
+
+.logoDot {
+  color: var(--giallo);
+  display: inline-block;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 6px rgba(255, 229, 39, 0.3); }
+  50% { opacity: 0.5; text-shadow: 0 0 16px rgba(255, 229, 39, 0.7); }
+}
+
+.brandSub {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Columns */
+.columns {
+  display: flex;
+  flex: 1;
+  gap: 48px;
+}
+
+.column {
+  flex: 1;
+}
+
+.columnTitle {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bianco);
+  margin-bottom: 20px;
+}
+
+.columnLink {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 4px 0;
+  transition: color var(--transition-fast);
+}
+
+.columnLink:hover {
+  color: var(--giallo);
+}
+
+.contactItem {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 4px 0;
+}
+
+/* Social */
+.social {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.socialLink {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+  transition: color var(--transition-fast);
+}
+
+.socialLink:hover {
+  color: var(--giallo);
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: rgba(255, 229, 39, 0.2);
+  margin-bottom: 24px;
+}
+
+/* Bottom */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 32px;
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.legal {
+  display: flex;
+  gap: 24px;
+}
+
+.legalLink {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color var(--transition-fast);
+}
+
+.legalLink:hover {
+  color: var(--giallo);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .brand {
+    flex: none;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .social {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

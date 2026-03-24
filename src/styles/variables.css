@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Big+Shoulders+Text:wght@400;500;600&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Typography Families */
+  --font-display: 'Big Shoulders Display', sans-serif;
+  --font-text: 'Big Shoulders Text', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-label: 'Barlow Condensed', sans-serif;
+
+  /* Legacy alias */
+  --font-title: var(--font-display);
+
+  /* Color System — REACTIVEDOTS Brand */
+  --black: #080809;
+  --void: #111113;
+  --space: #1A1A1D;
+  --graphite: #26262A;
+  --steel: #3A3A3E;
+  --silver: #8C8C92;
+  --pearl: #C8C8CC;
+  --fog: #E8E8ED;
+  --white: #F5F5F7;
+  --yellow: #FFD60A;
+  --yellow-lo: rgba(255, 214, 10, 0.08);
+  --yellow-mid: rgba(255, 214, 10, 0.25);
+
+  /* Legacy color aliases */
+  --nero: var(--black);
+  --giallo: var(--yellow);
+  --grigio: var(--fog);
+  --bianco: var(--white);
+
+  /* Primary Accent Gradient */
+  --gradient-primary: linear-gradient(135deg, var(--yellow) 0%, #FFB800 100%);
+  --gradient-dark: linear-gradient(180deg, var(--void) 0%, var(--black) 100%);
+
+  /* Glass Effects — Premium */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-accent: rgba(255, 214, 10, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-bright: rgba(255, 255, 255, 0.12);
+  --glass-blur: 20px;
+
+  /* Typography Scale */
+  --font-size-h1: clamp(64px, 12vw, 160px);
+  --font-size-h2: clamp(48px, 7vw, 96px);
+  --font-size-body: 15px;
+  --font-size-tag: 10px;
+
+  /* Border Radius */
+  --radius: 5px;
+
+  /* Spacing */
+  --section-padding: 160px 0;
+  --container-width: 1300px;
+  --container-padding: 0 56px;
+
+  /* Navbar */
+  --nav-height: 88px;
+  --nav-height-compact: 64px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}

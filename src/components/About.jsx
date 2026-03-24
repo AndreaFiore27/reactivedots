@@ -71,8 +71,6 @@ export default function About() {
                 <div className={styles.teamAvatar}>
                   <img src={member.image} alt={member.name} className={styles.teamAvatarImg} loading="lazy" />
                 </div>
-                <span className={styles.teamName}>{member.name}</span>
-                <span className={styles.teamRole}>{member.role}</span>
               </div>
             ))}
           </div>

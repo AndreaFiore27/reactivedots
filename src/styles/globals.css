@@ -59,7 +59,7 @@ button {
   padding: 14px 28px;
   font-family: var(--font-label);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   transition: all var(--transition-base);

@@ -207,5 +207,8 @@
 
   .arrow {
     opacity: 1;
+    background: var(--yellow);
+    color: var(--black);
+    border-color: var(--yellow);
   }
 }

@@ -53,7 +53,7 @@ export default function Process() {
     const current = -start;
     const ratio = Math.max(0, Math.min(1, current / total));
 
-    progress.style.height = `${ratio * 100}%`;
+    progress.style.transform = `scaleY(${ratio})`;
 
     // Determine which step is active based on scroll position
     const dots = timeline.querySelectorAll(`.${styles.dot}`);

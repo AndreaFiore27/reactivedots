@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  background-color: var(--nero);
+  background-color: transparent;
   min-height: 100vh;
   padding: 140px 0 120px;
 }

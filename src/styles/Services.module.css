@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  background-color: var(--nero);
+  background-color: transparent;
   padding: var(--section-padding);
   overflow: hidden;
 }

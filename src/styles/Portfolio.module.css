@@ -17,6 +17,21 @@
   margin-bottom: 56px;
 }
 
+.headerTitle {
+  flex: 1;
+}
+
+.tag {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--giallo);
+  margin-bottom: 16px;
+  display: block;
+}
+
 .heading {
   font-family: var(--font-display);
   font-size: clamp(48px, 7vw, 96px);

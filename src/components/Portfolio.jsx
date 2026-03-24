@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import PROJECTS from '../data/projects';
+import CtaBanner from './CtaBanner';
 import styles from '../styles/Portfolio.module.css';
 import modalStyles from '../styles/ProjectsPage.module.css';
 
@@ -213,14 +214,9 @@ export default function Portfolio() {
                   </div>
                 </div>
               )}
-
-              <div className={modalStyles.modalCta}>
-                <p className={modalStyles.modalCtaText}>Ti piace questo progetto?</p>
-                <a href="#contatti" className="btn btn-primary" onClick={closeProject}>
-                  Richiedi un progetto simile
-                </a>
-              </div>
             </div>
+            
+            <CtaBanner onCtaClick={closeProject} />
           </div>
         </div>
       )}

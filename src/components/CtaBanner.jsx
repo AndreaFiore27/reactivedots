@@ -1,7 +1,7 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import styles from '../styles/CtaBanner.module.css';
 
-export default function CtaBanner() {
+export default function CtaBanner({ onCtaClick }) {
   const ref = useScrollReveal();
 
   return (
@@ -17,11 +17,11 @@ export default function CtaBanner() {
           Inizia da qui. Ti rispondiamo entro 48 ore con pensieri concreti.
         </p>
         <div className={styles.actions} data-reveal="fade">
-          <a href="#contatti" className={styles.btnPrimary}>
+          <a href="/#contatti" className={styles.btnPrimary} onClick={onCtaClick}>
             Richiedi preventivo
             <span className={styles.arrow}>→</span>
           </a>
-          <a href="#works" className={styles.btnSecondary}>
+          <a href="/#works" className={styles.btnSecondary} onClick={onCtaClick}>
             Vedi i lavori
           </a>
         </div>

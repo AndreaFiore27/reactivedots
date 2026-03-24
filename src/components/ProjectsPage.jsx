@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import DotBackground from './DotBackground';
 import PROJECTS from '../data/projects';
+import CtaBanner from './CtaBanner';
 
 import styles from '../styles/ProjectsPage.module.css';
 
@@ -245,14 +246,9 @@ export default function ProjectsPage() {
                   </div>
                 </div>
               )}
-
-              <div className={styles.modalCta}>
-                <p className={styles.modalCtaText}>Ti piace questo progetto?</p>
-                <a href="#contatti" className="btn btn-primary" onClick={closeProject}>
-                  Richiedi un progetto simile
-                </a>
-              </div>
             </div>
+
+            <CtaBanner onCtaClick={closeProject} />
           </div>
         </div>
       )}

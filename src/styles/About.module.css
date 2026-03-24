@@ -144,6 +144,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;
 }
 
 .teamMember:hover .teamAvatar {
@@ -217,5 +218,10 @@
 
   .statDivider {
     height: 36px;
+  }
+
+  .teamAvatar {
+    width: 60px;
+    height: 60px;
   }
 }

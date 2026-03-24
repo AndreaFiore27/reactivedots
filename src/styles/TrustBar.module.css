@@ -40,12 +40,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.45;
-  transition: opacity 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .logo:hover {
-  opacity: 0.85;
+  transform: scale(1.05);
 }
 
 .logoImg {
@@ -53,7 +52,12 @@
   width: auto;
   max-width: 130px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: grayscale(100%) opacity(0.6);
+  transition: filter 0.3s ease;
+}
+
+.logo:hover .logoImg {
+  filter: grayscale(0%) opacity(1);
 }
 
 @keyframes scroll {

@@ -26,7 +26,6 @@ function HomePage() {
       <SectionDivider />
       <Process />
       <CtaBanner />
-      <SectionDivider />
       <About />
       <SectionDivider />
       <ContactForm />

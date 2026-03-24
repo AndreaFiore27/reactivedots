@@ -39,7 +39,7 @@
 
 @keyframes dotPulse {
   0%, 100% { opacity: 1; text-shadow: 0 0 6px rgba(255, 229, 39, 0.3); }
-  50% { opacity: 0.5; text-shadow: 0 0 16px rgba(255, 229, 39, 0.7); }
+  50% { opacity: 0.4; text-shadow: 0 0 20px rgba(255, 229, 39, 0.8); }
 }
 
 .brandSub {

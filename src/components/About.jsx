@@ -3,15 +3,38 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import placeholderImg from '../assets/placeholder-portfolio.jpg';
 import styles from '../styles/About.module.css';
 
+import imgAlessandroMarzolla from '../assets/team/alessandro-marzolla.jpg';
+import imgAlessandroMenegon from '../assets/team/alessandro-menegon.webp';
+import imgAndreaFiore from '../assets/team/andrea-fiore.webp';
+import imgAndreaPrina from '../assets/team/andrea-prina.jpg';
+import imgFabioColace from '../assets/team/fabio-colace.webp';
+import imgFrancescoBuonagiunto from '../assets/team/francesco-buonagiunto.webp';
+import imgIlariaCadeddu from '../assets/team/ilaria-cadeddu.avif';
+import imgLorenzoGuidi from '../assets/team/lorenzo-guidi.jpg';
+import imgMatteoGalfre from '../assets/team/matteo-galfre.webp';
+import imgMicheleRaviol from '../assets/team/michele-raviol.jpg';
+import imgRaffaellaMosso from '../assets/team/raffaella-mosso.avif';
+import imgRebeccaGai from '../assets/team/rebecca-gai.jpg';
+import imgSaraCameroni from '../assets/team/sara-cameroni.png';
+import imgSimoneArena from '../assets/team/simone-arena.webp';
+import imgSimonettaManfrida from '../assets/team/simonetta-manfrida.jpg';
+
 const TEAM = [
-  { name: 'Andrea', role: 'CEO & Founder' },
-  { name: 'Marco', role: 'Director' },
-  { name: 'Giulia', role: 'Producer' },
-  { name: 'Luca', role: 'DOP' },
-  { name: 'Sara', role: 'Motion Designer' },
-  { name: 'Davide', role: 'Editor' },
-  { name: 'Chiara', role: 'Social Strategist' },
-  { name: 'Matteo', role: 'Sound Designer' },
+  { name: 'Andrea Fiore', role: '', image: imgAndreaFiore },
+  { name: 'Andrea Prina', role: '', image: imgAndreaPrina },
+  { name: 'Alessandro Marzolla', role: '', image: imgAlessandroMarzolla },
+  { name: 'Alessandro Menegon', role: '', image: imgAlessandroMenegon },
+  { name: 'Fabio Colace', role: '', image: imgFabioColace },
+  { name: 'Francesco Buonagiunto', role: '', image: imgFrancescoBuonagiunto },
+  { name: 'Ilaria Cadeddu', role: '', image: imgIlariaCadeddu },
+  { name: 'Lorenzo Guidi', role: '', image: imgLorenzoGuidi },
+  { name: 'Matteo Galfre', role: '', image: imgMatteoGalfre },
+  { name: 'Michele Raviol', role: '', image: imgMicheleRaviol },
+  { name: 'Raffaella Mosso', role: '', image: imgRaffaellaMosso },
+  { name: 'Rebecca Gai', role: '', image: imgRebeccaGai },
+  { name: 'Sara Cameroni', role: '', image: imgSaraCameroni },
+  { name: 'Simone Arena', role: '', image: imgSimoneArena },
+  { name: 'Simonetta Manfrida', role: '', image: imgSimonettaManfrida },
 ];
 
 export default function About() {
@@ -46,7 +69,7 @@ export default function About() {
             {[...TEAM, ...TEAM].map((member, i) => (
               <div key={i} className={styles.teamMember}>
                 <div className={styles.teamAvatar}>
-                  <img src={placeholderImg} alt={member.name} className={styles.teamAvatarImg} />
+                  <img src={member.image} alt={member.name} className={styles.teamAvatarImg} loading="lazy" />
                 </div>
                 <span className={styles.teamName}>{member.name}</span>
                 <span className={styles.teamRole}>{member.role}</span>

@@ -150,6 +150,7 @@
 @media (max-width: 768px) {
   .hero {
     min-height: 70vh;
+    padding: 0 24px 60px;
   }
 
   .title {

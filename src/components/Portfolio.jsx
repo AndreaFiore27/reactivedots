@@ -44,7 +44,7 @@ export default function Portfolio() {
       <div className={styles.container}>
         <div className={styles.header} ref={headerRef}>
           <div className={styles.headerTitle}>
-            <p className={styles.tag} data-reveal="left">PORTFOLIO</p>
+            <p className={styles.sectionTag} data-reveal="left">PORTFOLIO</p>
             <h2 className={styles.heading} data-reveal="left">
               SELECTED<br />WORK<span className={styles.pulseDot}>●</span>
             </h2>

@@ -35,7 +35,7 @@ export default function Portfolio() {
       <div className={styles.container}>
         <div className={styles.header} ref={headerRef}>
           <h2 className={styles.heading} data-reveal="left">
-            SELECTED<br />WORK.
+            SELECTED<br />WORK<span className={styles.pulseDot}>●</span>
           </h2>
           <a
             href="/progetti"

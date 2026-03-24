@@ -48,7 +48,7 @@ export default function Hero() {
           <br />
           IDEAS <span className={styles.titleAccent}>GET</span>
           <br />
-          PRODUCED.
+          PRODUCED<span className={styles.pulseDot}>●</span>
         </h1>
 
         <p className={styles.subtitle} data-reveal>

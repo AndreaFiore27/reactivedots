@@ -10,7 +10,7 @@ export default function CtaBanner() {
       <div className={styles.inner} ref={ref}>
         <span className={styles.tag} data-reveal="fade">PRONTO A PARTIRE?</span>
         <h2 className={styles.heading} data-reveal>
-          LET'S MAKE IT<span className={styles.dot}>.</span>
+          LET'S MAKE IT<span className={styles.pulseDot}>●</span>
         </h2>
         <p className={styles.subtitle} data-reveal="fade">
           Hai un'idea, un brief, o anche solo un foglio bianco?<br />

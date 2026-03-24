@@ -84,6 +84,18 @@
   margin-bottom: 40px;
 }
 
+.pulseDot {
+  color: var(--giallo);
+  font-size: 0.35em;
+  vertical-align: baseline;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 6px rgba(255, 229, 39, 0.3); }
+  50% { opacity: 0.4; text-shadow: 0 0 20px rgba(255, 229, 39, 0.8); }
+}
+
 .titleAccent {
   color: var(--yellow);
 }

@@ -60,6 +60,22 @@
   padding: 20px 0;
 }
 
+/* ── Ambient Glow ── */
+.ambientGlow {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 214, 10, 0.08) 0%, rgba(255, 214, 10, 0.02) 35%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: top 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  will-change: top, opacity;
+}
+
 /* Vertical line */
 .line {
   position: absolute;
@@ -125,7 +141,6 @@
   transition: background 0.5s ease, transform 0.5s ease;
 }
 
-/* Active dot */
 .stepActive .dot {
   border-color: var(--giallo);
   background: rgba(255, 229, 39, 0.1);
@@ -137,6 +152,48 @@
   transform: scale(1.3);
 }
 
+/* ── Connector line dot → card border ── */
+.connector {
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.connector::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--giallo);
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 8px rgba(255, 229, 39, 0.3);
+}
+
+.connectorLeft {
+  right: calc(100% + 12px);
+}
+
+.connectorLeft::after {
+  transform-origin: right center;
+}
+
+.connectorRight {
+  left: calc(100% + 12px);
+}
+
+.connectorRight::after {
+  transform-origin: left center;
+}
+
+.stepActive .connector::after {
+  transform: scaleX(1);
+}
+
 /* ── Card ── */
 .card {
   width: calc(50% - 52px);
@@ -146,9 +203,10 @@
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  transition: border-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
   position: relative;
   z-index: 1;
+  will-change: transform;
 }
 
 .cardLeft {
@@ -161,7 +219,6 @@
 
 .stepActive .card {
   border-color: rgba(255, 229, 39, 0.3);
-  transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 229, 39, 0.05);
 }
 
@@ -213,10 +270,6 @@
   transition: color 0.5s ease;
 }
 
-.stepActive .stepTitle {
-  color: var(--bianco);
-}
-
 .stepDesc {
   font-family: var(--font-body);
   font-weight: 300;
@@ -244,6 +297,12 @@
     left: 20px;
   }
 
+  .ambientGlow {
+    left: 20px;
+    width: 300px;
+    height: 300px;
+  }
+
   .step {
     min-height: auto;
     padding: 32px 0;
@@ -254,6 +313,10 @@
     margin-left: auto !important;
     margin-right: 0 !important;
     padding: 28px 24px;
+  }
+
+  .connector {
+    display: none;
   }
 
   .stepNum {

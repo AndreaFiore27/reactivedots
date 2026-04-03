@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
 import SectionDivider from './components/SectionDivider';
 import Services from './components/Services';
+import BoldStatement from './components/BoldStatement';
 import Portfolio from './components/Portfolio';
 import Process from './components/Process';
 import About from './components/About';
@@ -21,6 +22,7 @@ function HomePage() {
       <TrustBar />
       <SectionDivider />
       <Services />
+      <BoldStatement />
       <SectionDivider />
       <Portfolio />
       <SectionDivider />

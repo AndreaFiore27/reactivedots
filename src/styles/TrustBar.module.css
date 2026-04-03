@@ -36,35 +36,29 @@
 
 .logo {
   flex-shrink: 0;
-  width: 160px;
-  height: 64px;
+  width: 140px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.85); /* Constant white backdrop so black logos are visible */
-  transition: all 0.3s ease;
+  padding: 10px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logo:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.08);
 }
 
 .logoImg {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* Grayscale when not hovered */
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: all 0.3s ease;
+  filter: grayscale(100%) brightness(1.8);
+  opacity: 0.35;
+  transition: filter 0.5s ease, opacity 0.5s ease;
 }
 
 .logo:hover .logoImg {
-  /* Original colors on hover */
   filter: none;
   opacity: 1;
 }

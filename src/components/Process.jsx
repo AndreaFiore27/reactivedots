@@ -34,19 +34,18 @@ export default function Process() {
   const headerRef = useScrollReveal();
   const timelineRef = useRef(null);
   const progressRef = useRef(null);
+  const glowRef = useRef(null);
   const [activeStep, setActiveStep] = useState(-1);
 
   const handleScroll = useCallback(() => {
     const timeline = timelineRef.current;
     const progress = progressRef.current;
+    const glow = glowRef.current;
     if (!timeline || !progress) return;
 
     const rect = timeline.getBoundingClientRect();
     const windowH = window.innerHeight;
 
-    // Calculate how far we've scrolled through the timeline
-    // Start filling when timeline top hits 70% of viewport
-    // Finish when timeline bottom hits 30% of viewport
     const start = rect.top - windowH * 0.7;
     const end = rect.bottom - windowH * 0.3;
     const total = end - start;
@@ -55,7 +54,6 @@ export default function Process() {
 
     progress.style.transform = `scaleY(${ratio})`;
 
-    // Determine which step is active based on scroll position
     const dots = timeline.querySelectorAll(`.${styles.dot}`);
     let newActive = -1;
     dots.forEach((dot, i) => {
@@ -66,6 +64,25 @@ export default function Process() {
       }
     });
     setActiveStep(newActive);
+
+    if (glow && newActive >= 0 && dots[newActive]) {
+      const dotRect = dots[newActive].getBoundingClientRect();
+      const timelineRect = timeline.getBoundingClientRect();
+      const dotY = dotRect.top - timelineRect.top + dotRect.height / 2;
+      glow.style.top = `${dotY}px`;
+      glow.style.opacity = '1';
+    } else if (glow) {
+      glow.style.opacity = '0';
+    }
+
+    const cards = timeline.querySelectorAll(`.${styles.card}`);
+    cards.forEach((card, i) => {
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.top + cardRect.height / 2;
+      const offset = (cardCenter - windowH * 0.5) * 0.04;
+      const direction = i % 2 === 0 ? -1 : 1;
+      card.style.transform = `translateY(${offset * direction}px)`;
+    });
   }, []);
 
   useEffect(() => {
@@ -84,7 +101,8 @@ export default function Process() {
         </div>
 
         <div className={styles.timeline} ref={timelineRef}>
-          {/* Vertical line track */}
+          <div className={styles.ambientGlow} ref={glowRef} />
+
           <div className={styles.line}>
             <div className={styles.lineProgress} ref={progressRef} />
           </div>
@@ -94,14 +112,13 @@ export default function Process() {
               key={step.num}
               className={`${styles.step} ${activeStep >= i ? styles.stepActive : ''}`}
             >
-              {/* Dot on the line */}
               <div className={styles.dotWrapper}>
                 <div className={styles.dot}>
                   <div className={styles.dotInner} />
                 </div>
+                <div className={`${styles.connector} ${i % 2 === 0 ? styles.connectorLeft : styles.connectorRight}`} />
               </div>
 
-              {/* Content card */}
               <div className={`${styles.card} ${i % 2 === 0 ? styles.cardLeft : styles.cardRight}`}>
                 <span className={styles.stepNum}>{step.num}</span>
                 <span className={styles.stepLabel}>{step.label}</span>

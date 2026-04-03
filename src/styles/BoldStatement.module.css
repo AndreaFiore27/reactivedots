@@ -55,10 +55,11 @@
 /* ── Floating images ── */
 .floatingImg {
   position: absolute;
-  z-index: 1;
   overflow: hidden;
   will-change: transform;
-  transition: box-shadow 0.4s ease;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
 .floatingImg img {
@@ -66,53 +67,59 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: saturate(0.7) brightness(0.8);
+  transition: filter 0.5s ease, transform 0.5s ease;
 }
 
 .floatingImg:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 214, 10, 0.06);
+  border-color: rgba(255, 214, 10, 0.2);
 }
 
-/* Image 1 — top left */
+.floatingImg:hover img {
+  filter: saturate(1) brightness(0.9);
+  transform: scale(1.05);
+}
+
+/* Image 1 — top left, slightly tilted */
 .img1 {
-  top: -5%;
-  left: 8%;
+  top: 2%;
+  left: 6%;
   width: 280px;
   height: 200px;
-  z-index: 3;
+  z-index: 1;
+  transform: rotate(-3deg);
 }
 
-/* Image 2 — top right */
+/* Image 2 — top right, overlaps text */
 .img2 {
-  top: -8%;
-  right: 5%;
+  top: -4%;
+  right: 4%;
   width: 320px;
   height: 220px;
   z-index: 1;
+  transform: rotate(2deg);
 }
 
-/* Image 3 — bottom left */
+/* Image 3 — bottom left, overlaps text */
 .img3 {
-  bottom: 5%;
-  left: 3%;
-  width: 260px;
+  bottom: 8%;
+  left: 2%;
+  width: 270px;
   height: 190px;
   z-index: 3;
+  transform: rotate(2.5deg);
 }
 
 /* Image 4 — bottom right */
 .img4 {
-  bottom: -2%;
-  right: 8%;
-  width: 240px;
+  bottom: 2%;
+  right: 6%;
+  width: 250px;
   height: 210px;
-  z-index: 1;
+  z-index: 3;
+  transform: rotate(-2deg);
 }
-
-/* Images that overlap the text go behind, others in front */
-.img1 { z-index: 1; }
-.img2 { z-index: 1; }
-.img3 { z-index: 3; }
-.img4 { z-index: 3; }
 
 /* ── Bottom labels ── */
 .labels {
@@ -163,34 +170,34 @@
   }
 
   .floatingImg {
-    opacity: 0.5;
+    opacity: 0.45;
   }
 
   .img1 {
-    width: 160px;
-    height: 120px;
-    top: 0;
+    width: 150px;
+    height: 110px;
+    top: 2%;
     left: 2%;
   }
 
   .img2 {
-    width: 180px;
-    height: 130px;
-    top: -5%;
+    width: 170px;
+    height: 125px;
+    top: -3%;
     right: 0;
   }
 
   .img3 {
     width: 140px;
-    height: 110px;
-    bottom: 5%;
+    height: 105px;
+    bottom: 8%;
     left: 0;
   }
 
   .img4 {
     width: 130px;
-    height: 120px;
-    bottom: 0;
+    height: 115px;
+    bottom: 2%;
     right: 2%;
   }
 

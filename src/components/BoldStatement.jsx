@@ -1,4 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react';
+import DotBackground from './DotBackground';
 import styles from '../styles/BoldStatement.module.css';
 
 import img1 from '../assets/project-vergnano.jpg';
@@ -11,6 +12,14 @@ const IMAGES = [
   { src: img2, alt: 'Production shot 2' },
   { src: img3, alt: 'Production shot 3' },
   { src: img4, alt: 'Production shot 4' },
+];
+
+// Each image has unique motion parameters
+const MOTION = [
+  { ySpeed: 0.18, xSpeed: 0.04, rotate: 0.03, scaleRange: 0.08 },
+  { ySpeed: -0.12, xSpeed: -0.05, rotate: -0.04, scaleRange: 0.06 },
+  { ySpeed: -0.15, xSpeed: 0.06, rotate: 0.05, scaleRange: 0.1 },
+  { ySpeed: 0.2, xSpeed: -0.04, rotate: -0.03, scaleRange: 0.07 },
 ];
 
 export default function BoldStatement() {
@@ -28,11 +37,12 @@ export default function BoldStatement() {
 
     imagesRef.current.forEach((img, i) => {
       if (!img) return;
-      const speed = [0.12, -0.08, -0.1, 0.14][i];
-      const xSpeed = [0.03, -0.04, 0.05, -0.03][i];
-      const y = progress * speed * windowH;
-      const x = progress * xSpeed * windowH;
-      img.style.transform = `translate(${x}px, ${y}px)`;
+      const m = MOTION[i];
+      const y = progress * m.ySpeed * windowH;
+      const x = progress * m.xSpeed * windowH;
+      const rotate = progress * m.rotate * 60;
+      const scale = 1 + progress * m.scaleRange;
+      img.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg) scale(${scale})`;
     });
   }, []);
 
@@ -44,6 +54,7 @@ export default function BoldStatement() {
 
   return (
     <section className={styles.section} ref={sectionRef}>
+      <DotBackground />
       <div className={styles.inner}>
         {/* Floating images */}
         {IMAGES.map((img, i) => (
